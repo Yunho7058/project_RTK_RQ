@@ -31,25 +31,36 @@ const StyledInput = styled(InputBase)({
   display: "flex",
 });
 
-const StlyedIconBox = styled(Box)(({ theme }) => ({
+// eslint-disable-next-line no-empty-pattern
+const StlyedIconBox = styled(Box)(({}) => ({
   borderRadius: "5px",
   display: "flex",
   flexDirection: "row",
-  gap: "3px",
+
+  alignItems: "center", // 아이콘과 텍스트를 세로 가운데 정렬
+  justifyContent: "center", // 필요하다면 가로도 중앙 정렬
+  ":hover": {
+    cursor: "pointer",
+    scale: 1.02,
+  },
 }));
 
 const Header = () => {
   return (
     <HeaderBox>
-      <Box sx={{ ...flexCenterColumn, flexDirection: "row" }}>
+      <Box sx={{ ...flexCenterColumn, flexDirection: "row", gap: "5px" }}>
         <img src={Logo} height="100px" />
         <StlyedIconBox>
           <HomeIcon />
-          <Typography>Home</Typography>
+          <Typography ml="2px" mt="6px">
+            Home
+          </Typography>
         </StlyedIconBox>
-        <StlyedIconBox>
+        <StlyedIconBox ml="10px">
           <MovieIcon />
-          Movies
+          <Typography ml="2px" mt="6px">
+            Movies
+          </Typography>
         </StlyedIconBox>
       </Box>
       <SearchBox>
